@@ -7,7 +7,11 @@ const mongoose = require("mongoose");
 const cors = require("cors"); //to work with serverside in frontend
 const UserModel = require("./models/Users");
 const app = express();
-app.use(cors());
+app.use(cors({ 
+  origin: ["https://mern-crud-delta-one.vercel.app/"],
+  credentials:[true],
+  methods: ['GET','POST','HEAD','PUT','PATCH','DELETE']}));
+
 app.use(express.json()); //when pass data from frontend to backend we parse the data to json format
 //run the server
 
